@@ -11,8 +11,9 @@ import stateLoginForm from "../models/login/stateLoginForm";
 import useHandleLogin from "../models/login/useHandleLogin";
 
 const Home: NextPage = () => {
-  const [form, setForm] = useRecoilState(stateLoginForm);
-  const handleLogin = useHandleLogin();
+  const router = useRouter();
+  const loginForm = useLoginForm();
+  const [user, setUser] = useRecoilState(currentUser);
 
   return (
     <div>
@@ -137,7 +138,13 @@ const Home: NextPage = () => {
             }}
             variant="contained"
             disableElevation
-            onClick={handleLogin}
+            onClick={(e) =>
+              loginForm.handleSubmit((user: User) => {
+                console.log('user:', user);
+                setUser(user);
+                router.push('/home');
+              })
+            }
           >
             {form.isSubmitting ? (
               <CircularProgress color="inherit" />

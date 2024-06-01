@@ -6,16 +6,24 @@
     "dev": "next dev -p 3001",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format": "prettier --write .",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
-    "@mui/icons-material": "5.14.1",
-    "@mui/material": "^5.14.2",
+    "@faker-js/faker": "^8.0.2",
+    "@mui/icons-material": "^5.14.1",
+    "@mui/material": "^5.14.3",
     "@svgr/webpack": "8.0.1",
     "axios": "^1.4.0",
+    "moment": "^2.29.4",
     "next": "13.4.12",
+    "prettier": "^3.0.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "recoil": "^0.7.7",
@@ -27,6 +35,8 @@
     "@types/react-dom": "18.2.7",
     "eslint": "8.45.0",
     "eslint-config-next": "13.4.12",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.3",
     "typescript": "5.1.6"
   }
 }
